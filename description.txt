@@ -1,0 +1,2 @@
+All of these are simple basic projects , just to illustrate the uses of DOM Manipulations and fetching data from APIs 
+  to make our websites resourcefull and more dynamic
