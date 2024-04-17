@@ -1,0 +1,64 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  border: 2px solid black;
+  padding: 5rem;
+  max-width: 80%;
+  background-color: #EAF1E6;
+  box-shadow: 0px -25px 20px -20px rgba(0, 0, 0, 0.45),
+    25px 0px 20px -20px rgba(0, 0, 0, 0.45),
+    0px 25px 20px -20px rgba(0, 0, 0, 0.45),
+    -25px 0px 20px -20px rgba(0, 0, 0, 0.45);
+    border-radius: 1rem;
+
+}
+h1{
+    width: 50rem;
+    margin: 1rem auto;
+    background-color: #32494B;
+    color: white;
+    padding: 2rem;
+    font-weight: bolder;
+    border-radius: 1rem;
+}
+
+.quote {
+  margin-bottom: 20px;
+  font-size: larger;
+}
+#quote-text{
+    margin-top: 4rem;
+    font-size: larger;
+ 
+}
+#quote-author{
+    float: right;
+    background-color: #32494B;
+    color: white;
+    padding: 0.7rem;
+    border-radius: 0.5rem;
+ 
+}
+
+#new-quote-btn {
+  padding: 10px 20px;
+  font-size: larger;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 5rem;
+}
+
+#new-quote-btn:hover {
+  background-color: #0056b3;
+}
