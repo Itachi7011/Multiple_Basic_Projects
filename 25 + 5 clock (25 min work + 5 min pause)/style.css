@@ -1,0 +1,75 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+.container {
+    max-width: 80rem;
+    width: 50rem;
+    margin: 1rem auto;
+    text-align: center;
+    border: 5px solid black;
+    padding: 3rem;
+    padding-top: 1rem;
+    background-color: #d8d1cc;
+    font-size: larger;
+    border-radius: 1rem;
+    box-shadow: 0px -25px 20px -20px rgba(0, 0, 0, 0.45),
+      25px 0px 20px -20px rgba(0, 0, 0, 0.45),
+      0px 25px 20px -20px rgba(0, 0, 0, 0.45),
+      -25px 0px 20px -20px rgba(0, 0, 0, 0.45);
+  }
+
+h1 {
+
+  color: white;
+  background-color: #32494b;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin: 1rem auto;
+  text-align: center;
+  max-width: 80rem;
+  font-weight: bolder;
+}
+
+#timer {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+button {
+    padding: 1rem;
+    font-size: large;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin: 0.5rem;
+}
+
+#session-length,
+#break-length,
+#timer {
+    text-align: center;
+  font-size: 24px;
+  border: 2px solid black;
+  width: 5rem;
+  margin: 1rem auto;
+  color: white;
+  background-color: #1D3F6E;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+#timer {
+    text-align: center;
+  font-size: 24px;
+  border: 2px solid black;
+  width: 7rem;
+  margin: 1rem auto;
+  color: white;
+  background-color: #1D3F6E;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
