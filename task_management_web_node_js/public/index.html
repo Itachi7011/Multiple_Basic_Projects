@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Management System</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Event Management System</h1>
+      <nav>
+        <ul>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="events">
+      <h2>New Events</h2>
+      <div id="newEvent">
+        <form id="contactForm" action="/events" method="POST">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="message">Location:</label>
+          <input type="text" id="location" name="location" required />
+
+          <label for="message">Description:</label>
+          <textarea id="description" name="description" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+    <section id="contact">
+      <h2>Upcoming Events</h2>
+      <div id="eventList"></div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form id="contactForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Event Management System. All rights reserved.</p>
+    </footer>
+
+    <script>
+      let data;
+
+      async function fetchData() {
+        try {
+          const response = await fetch("http://localhost:8000/api/events", {
+            method: "GET",
+          });
+          if (!response.ok) {
+            throw new Error("Failed to fetch data");
+          }
+          data = await response.json();
+
+          const eventList = document.getElementById("eventList");
+          eventList.innerHTML = "";
+
+          data.forEach((event, index) => {
+            const EventItem = document.createElement("div");
+            const EventName = document.createElement("span");
+            const EventDate = document.createElement("span");
+            const DropDownSymbol = document.createElement("span");
+            const DropUpSymbol = document.createElement("span");
+            DropDownSymbol.innerHTML = "&#9660";
+            DropUpSymbol.innerHTML = "&#x25B4";
+            DropDownSymbol.classList.add("dropdownsymbol");
+            DropUpSymbol.classList.add("dropupsymbol");
+
+            EventName.classList.add("exercise-name");
+            EventDate.classList.add("exercise-time");
+            EventName.textContent = `${index + 1}. Name :  ${event.name}`;
+            EventDate.textContent = `Date : ${event.date}`;
+
+            EventItem.classList.add("exercise-item");
+            EventItem.appendChild(EventName);
+            EventItem.appendChild(EventDate);
+            EventItem.appendChild(DropDownSymbol);
+            eventList.appendChild(EventItem);
+
+            let dropdown = false;
+
+            function dropDownDetails() {
+              const EventDescription = document.createElement("div");
+              const EventLocation = document.createElement("div");
+              EventDescription.setAttribute("id", "event-description");
+              EventLocation.setAttribute("id", "event-location");
+
+              EventDescription.textContent = `Description :  ${event.description} `;
+              EventLocation.textContent = `Location : ${event.location} `;
+
+              if (dropdown === false) {
+                EventItem.appendChild(EventLocation);
+                EventItem.appendChild(EventDescription);
+
+                DropDownSymbol.innerHTML = "&#9660";
+                dropdown = true;
+                return;
+              } else if (dropdown === true) {
+                const removeDescription =
+                  document.getElementById("event-description");
+                const removeLocation =
+                  document.getElementById("event-location");
+                removeDescription.remove();
+                removeLocation.remove();
+
+                DropUpSymbol.innerHTML = "&#9660";
+                dropdown = false;
+                return;
+              }
+            }
+            eventList.addEventListener("click", dropDownDetails);
+          });
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      window.addEventListener("load", fetchData);
+    </script>
+  </body>
+</html>
