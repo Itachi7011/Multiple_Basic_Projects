@@ -40,7 +40,7 @@ app.post("/events", async (req, res) => {
   try {
     const event = new Event(req.body);
     await event.save();
-    res.status(201).send(event);
+    res.status(201).redirect("/");
   } catch (err) {
     res.status(400).send(err);
   }
